@@ -1,3 +1,5 @@
+using EjemploQuartz.Jobs;
+using EjemploQuartz.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,10 +19,12 @@ namespace EjemploQuartz
     public class Startup
     {
         private IScheduler quartzScheduler;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
             quartzScheduler = ConfigureQuartz();
+            ScheduledJobs.Start();
         }
 
         public IConfiguration Configuration { get; }
@@ -60,6 +64,8 @@ namespace EjemploQuartz
             });
         }
 
+
+        //PARA USARSE EN ALGUNA OTRA CLASE
         public IScheduler ConfigureQuartz()
         {
             NameValueCollection props = new NameValueCollection
@@ -77,5 +83,6 @@ namespace EjemploQuartz
         {
             if (!quartzScheduler.IsShutdown) quartzScheduler.Shutdown();
         }
+
     }
 }

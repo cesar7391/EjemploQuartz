@@ -50,7 +50,6 @@ namespace EjemploQuartz.Controllers
                 .Build();
 
             await scheduler.ScheduleJob(triggerBD);
-
             return RedirectToAction("Index");
         }
 
@@ -93,9 +92,7 @@ namespace EjemploQuartz.Controllers
                     .PreserveHourOfDayAcrossDaylightSavings(true)
                     .SkipDayIfHourDoesNotExist(true))
                 */
-                .Build();
-
-            
+                .Build();            
                 
             await scheduler.ScheduleJob(trigger);
 
