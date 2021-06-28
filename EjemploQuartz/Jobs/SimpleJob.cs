@@ -52,7 +52,7 @@ namespace EjemploQuartz.Jobs
                 }
 
                 RegistrarEvento(this.GetType().Name, "Tarea ejecutada correctamente", "EXITO");
-                var mensaje = $"Ejecución simple, Insertando datos [{nombre},{descripcion},{precio}] el día {DateTime.Now.ToString()}";
+                var mensaje = $"Insertando datos [{nombre},{descripcion},{precio}], el día {DateTime.Now.ToString()}";
                 System.Diagnostics.Debug.WriteLine(mensaje);
                 Console.WriteLine(mensaje);
             }
